@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Details</title>
+</head>
+<body>
+    <h1>Lab Details</h1>
+    <div id="lab-details"></div>
+
+    <script>
+        // Parse lab ID from query string
+        const params = new URLSearchParams(window.location.search);
+        const labId = parseInt(params.get('id'));
+
+        // Lab data
+        const labData = [
+            { id: 1, name: "BARHALGANJ GKP-ALLERGY CURE PATH LAB PVT.LTD.", city: "Barhalganj", state: "Uttar Pradesh", address: "Barhalganj (Gorakhpur), Barhalganj, Uttar Pradesh, India", phone: "+917565878037" },
+            { id: 2, name: "Rohtak-Allergy Cure Path Lab Pvt. Ltd.", city: "Rohtak", state: "Haryana", address: "Huda Complex, Rohtak, Rohtak, Haryana, India", phone: "+919999801344" },
+            { id: 3, name: "Delhi-Allergy Cure Path Lab Pvt. Ltd.", city: "Delhi", state: "Delhi", address: "Janakpuri, Delhi, Delhi, India", phone: "+919999801344" },
+            { id: 4, name: "Sri Sai Diagnostic Centre", city: "Jaisinghpur", state: "Maharashtra", address: "Jaisinghpur, Jaysingpur, Maharashtra, India", phone: "+918446228462" },
+            { id: 5, name: "HEALTH CARE DIAGNOSTIC CENTER", city: "Bhiwani", state: "Haryana", address: "VARDHMAN TOWER, OPP. IDBI BANK,127021, Bhiwani, Haryana, India", phone: "+919416321022" },
+            { id: 6, name: "LIFE CARE MULTISPECIALITY HOSPITAL", city: "Charkhi Dadri", state: "Haryana", address: "LIFE CARE MULTISPECIALITY HOSPITAL, OPP. PWD REST HOUSE, ROHTAK ROAD, CHARKI DADRI.127306, Charkhi Dadri, Haryana, India", phone: "+9190349439999" },
+            { id: 7, name: "GOYAL HOSPITAL -MAHENDERGARH", city: "Mahendragarh", state: "Haryana", address: "BHARAMDEV CHOWK, NEAR GOYAL MEDICAL STORE,123029, Mahendragarh, Haryana, India", phone: "+918901469585" },
+            { id: 8, name: "CARE DIAGNOSTIC CENTER", city: "Narnaul", state: "Haryana", address: "OLD COURT ROAD, NARNAUL ,123001DR PARMJEET SINGH DR PARMJEET SINGH, Narnaul, Haryana, India", phone: "+919812128080" },
+            { id: 9, name: "AEKAM PATHOLOGICAL LAB", city: "Narnaul", state: "Haryana", address: "OLD COURT ROAD, NARNAUL ,123001, Narnaul, Haryana, India", phone: "9416314102" }
+        ];
+
+        // Find lab by ID
+        const lab = labData.find(l => l.id === labId);
+
+        // Display lab details
+        const detailsContainer = document.getElementById('lab-details');
+        if (lab) {
+            detailsContainer.innerHTML = `
+                <h2>${lab.name}</h2>
+                <p><strong>City:</strong> ${lab.city}</p>
+                <p><strong>State:</strong> ${lab.state}</p>
+                <p><strong>Address:</strong> ${lab.address}</p>
+                <p><strong>Phone:</strong> ${lab.phone}</p>
+            `;
+        } else {
+            detailsContainer.innerHTML = "<p>Lab not found.</p>";
+        }
+    </script>
+</body>
+</html>
